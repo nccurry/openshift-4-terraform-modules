@@ -13,13 +13,6 @@ resource "azurerm_storage_account" "bootstrap" {
   access_tier = "Cool"
   enable_https_traffic_only = true
   enable_advanced_threat_protection = true
-  logging {
-    delete = true
-    read = true
-    version = "2.0"
-    write = true
-    retention_policy_days = 90
-  }
   network_rules {
     default_action = "Deny"
     virtual_network_subnet_ids = [
@@ -37,13 +30,6 @@ resource "azurerm_storage_account" "master" {
   access_tier = "Cool"
   enable_https_traffic_only = true
   enable_advanced_threat_protection = true
-  logging {
-    delete = true
-    read = true
-    version = "2.0"
-    write = true
-    retention_policy_days = 90
-  }
   network_rules {
     default_action = "Deny"
     virtual_network_subnet_ids = [
@@ -61,13 +47,6 @@ resource "azurerm_storage_account" "worker" {
   access_tier = "Cool"
   enable_https_traffic_only = true
   enable_advanced_threat_protection = true
-  logging {
-    delete = true
-    read = true
-    version = "2.0"
-    write = true
-    retention_policy_days = 90
-  }
   network_rules {
     default_action = "Deny"
     virtual_network_subnet_ids = [
