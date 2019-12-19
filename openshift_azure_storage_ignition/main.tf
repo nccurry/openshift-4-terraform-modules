@@ -11,13 +11,6 @@ resource "azurerm_storage_account" "bootstrap" {
   account_tier             = "Standard"
   account_replication_type = "LRS"
   enable_https_traffic_only = true
-  enable_advanced_threat_protection = true
-  network_rules {
-    default_action = "Deny"
-    virtual_network_subnet_ids = [
-      var.openshift_cluster_subnet_id
-    ]
-  }
   tags = {
     OPENSHIFT_CLUSTER = var.openshift_cluster_name
   }
@@ -30,13 +23,6 @@ resource "azurerm_storage_account" "master" {
   account_tier             = "Standard"
   account_replication_type = "LRS"
   enable_https_traffic_only = true
-  enable_advanced_threat_protection = true
-  network_rules {
-    default_action = "Deny"
-    virtual_network_subnet_ids = [
-      var.openshift_cluster_subnet_id
-    ]
-  }
   tags = {
     OPENSHIFT_CLUSTER = var.openshift_cluster_name
   }
@@ -49,13 +35,6 @@ resource "azurerm_storage_account" "worker" {
   account_tier             = "Standard"
   account_replication_type = "LRS"
   enable_https_traffic_only = true
-  enable_advanced_threat_protection = true
-  network_rules {
-    default_action = "Deny"
-    virtual_network_subnet_ids = [
-      var.openshift_cluster_subnet_id
-    ]
-  }
   tags = {
     OPENSHIFT_CLUSTER = var.openshift_cluster_name
   }
