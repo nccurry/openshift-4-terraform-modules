@@ -10,7 +10,6 @@ resource "azurerm_storage_account" "bootstrap" {
   location                 = var.azure_location
   account_tier             = "Standard"
   account_replication_type = "LRS"
-  access_tier = "Cool"
   enable_https_traffic_only = true
   enable_advanced_threat_protection = true
   network_rules {
@@ -30,7 +29,6 @@ resource "azurerm_storage_account" "master" {
   location                 = var.azure_location
   account_tier             = "Standard"
   account_replication_type = "LRS"
-  access_tier = "Cool"
   enable_https_traffic_only = true
   enable_advanced_threat_protection = true
   network_rules {
@@ -50,7 +48,6 @@ resource "azurerm_storage_account" "worker" {
   location                 = var.azure_location
   account_tier             = "Standard"
   account_replication_type = "LRS"
-  access_tier = "Cool"
   enable_https_traffic_only = true
   enable_advanced_threat_protection = true
   network_rules {
