@@ -19,7 +19,7 @@ resource "azurerm_storage_account" "bootstrap" {
       var.openshift_cluster_subnet_id
     ]
   }
-  tags {
+  tags = {
     OPENSHIFT_CLUSTER = var.openshift_cluster_name
   }
 }
@@ -39,7 +39,7 @@ resource "azurerm_storage_account" "master" {
       var.openshift_cluster_subnet_id
     ]
   }
-  tags {
+  tags = {
     OPENSHIFT_CLUSTER = var.openshift_cluster_name
   }
 }
@@ -59,7 +59,7 @@ resource "azurerm_storage_account" "worker" {
       var.openshift_cluster_subnet_id
     ]
   }
-  tags {
+  tags = {
     OPENSHIFT_CLUSTER = var.openshift_cluster_name
   }
 }
