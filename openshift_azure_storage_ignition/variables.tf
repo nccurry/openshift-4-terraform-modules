@@ -13,3 +13,7 @@ variable "ignition_directory" {
 variable "openshift_cluster_subnet_id" {
   description = "Subnet id that can access cluster storage account and ignition files"
 }
+
+variable "openshift_cluster_name" {
+  description = "Unique OpenShift cluster identifier"
+}

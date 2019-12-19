@@ -1,5 +1,5 @@
 resource "random_string" "storage_suffix" {
-  length  = 10
+  length  = 5
   upper   = false
   special = false
 }
@@ -19,6 +19,9 @@ resource "azurerm_storage_account" "bootstrap" {
       var.openshift_cluster_subnet_id
     ]
   }
+  tags {
+    OPENSHIFT_CLUSTER = var.openshift_cluster_name
+  }
 }
 
 resource "azurerm_storage_account" "master" {
@@ -36,6 +39,9 @@ resource "azurerm_storage_account" "master" {
       var.openshift_cluster_subnet_id
     ]
   }
+  tags {
+    OPENSHIFT_CLUSTER = var.openshift_cluster_name
+  }
 }
 
 resource "azurerm_storage_account" "worker" {
@@ -52,6 +58,9 @@ resource "azurerm_storage_account" "worker" {
     virtual_network_subnet_ids = [
       var.openshift_cluster_subnet_id
     ]
+  }
+  tags {
+    OPENSHIFT_CLUSTER = var.openshift_cluster_name
   }
 }
 
