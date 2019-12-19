@@ -12,7 +12,8 @@ resource "azurerm_storage_account" "bootstrap" {
   account_replication_type = "LRS"
   enable_https_traffic_only = true
   tags = {
-    OPENSHIFT_CLUSTER = var.openshift_cluster_name
+    APP_NAME = "OCP"
+    OCP_CLUSTER = var.openshift_cluster_name
   }
 }
 
@@ -24,7 +25,8 @@ resource "azurerm_storage_account" "master" {
   account_replication_type = "LRS"
   enable_https_traffic_only = true
   tags = {
-    OPENSHIFT_CLUSTER = var.openshift_cluster_name
+    APP_NAME = "OCP"
+    OCP_CLUSTER = var.openshift_cluster_name
   }
 }
 
@@ -36,7 +38,8 @@ resource "azurerm_storage_account" "worker" {
   account_replication_type = "LRS"
   enable_https_traffic_only = true
   tags = {
-    OPENSHIFT_CLUSTER = var.openshift_cluster_name
+    APP_NAME = "OCP"
+    OCP_CLUSTER = var.openshift_cluster_name
   }
 }
 
