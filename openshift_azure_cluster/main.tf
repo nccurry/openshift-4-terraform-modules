@@ -16,7 +16,7 @@ resource "azurerm_network_security_rule" "api-lb-api" {
     network_security_group_name = azurerm_network_security_group.api-lb.name
     description = "API traffic from external"
     protocol = "Tcp"
-    source_port_range = "6443"
+    source_port_range = "*"
     destination_port_range = "6443"
     source_address_prefix = "*"
     destination_address_prefix = "*"
@@ -31,7 +31,7 @@ resource "azurerm_network_security_rule" "api-lb-machine-config" {
     network_security_group_name = azurerm_network_security_group.api-lb.name
     description = "MachineConfig traffic from bootstrap / master"
     protocol = "Tcp"
-    source_port_range = "22623"
+    source_port_range = "*"
     destination_port_range = "22623"
     source_address_prefix = "*"
     destination_address_prefix = "*"
@@ -117,7 +117,7 @@ resource "azurerm_network_security_rule" "ingress-lb-http" {
     network_security_group_name = azurerm_network_security_group.ingress-lb.name
     description = "Ingress http from external"
     protocol = "Tcp"
-    source_port_range = "80"
+    source_port_range = "*"
     destination_port_range = "80"
     source_address_prefix = "*"
     destination_address_prefix = "*"
@@ -132,7 +132,7 @@ resource "azurerm_network_security_rule" "ingress-lb-https" {
     network_security_group_name = azurerm_network_security_group.ingress-lb.name
     description = "Ingress http from external"
     protocol = "Tcp"
-    source_port_range = "443"
+    source_port_range = "*"
     destination_port_range = "443"
     source_address_prefix = "*"
     destination_address_prefix = "*"
@@ -229,7 +229,7 @@ resource "azurerm_network_security_rule" "bootstrap-ssh" {
   network_security_group_name = element(azurerm_network_security_group.bootstrap.*.name, count.index)
   description = "SSH traffic from external"
   protocol = "Tcp"
-  source_port_range = "22"
+  source_port_range = "*"
   destination_port_range = "22"
   source_address_prefix = "*"
   destination_address_prefix = "*"
@@ -323,7 +323,7 @@ resource "azurerm_network_security_rule" "master-ssh" {
   network_security_group_name = azurerm_network_security_group.master.name
   description = "SSH traffic from external"
   protocol = "Tcp"
-  source_port_range = "22"
+  source_port_range = "*"
   destination_port_range = "22"
   source_address_prefix = "*"
   destination_address_prefix = "*"
