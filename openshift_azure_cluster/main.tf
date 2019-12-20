@@ -460,7 +460,7 @@ resource "azurerm_network_interface_backend_address_pool_association" "worker" {
 
 data "ignition_config" "worker-redirect" {
   replace {
-    source = var.master_ignition_source_uri
+    source = var.worker_ignition_source_uri
   }
 }
 
