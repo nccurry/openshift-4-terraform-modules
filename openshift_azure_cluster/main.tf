@@ -226,7 +226,7 @@ resource "azurerm_network_security_rule" "bootstrap-ssh" {
   count = var.bootstrap_replicas
   name = "openshift-${var.openshift_cluster_name}-bootstrap-ssh"
   resource_group_name = var.azure_resource_group_name
-  network_security_group_name = azurerm_network_security_group.bootstrap.name
+  network_security_group_name = element(azurerm_network_security_group.bootstrap.*.name, count.index)
   description = "SSH traffic from external"
   protocol = "Tcp"
   source_port_range = "22"
@@ -243,7 +243,7 @@ resource "azurerm_network_interface" "bootstrap" {
   name = "openshift-${var.openshift_cluster_name}-bootstrap-nic"
   resource_group_name = var.azure_resource_group_name
   location = var.azure_location
-  network_security_group_id = azurerm_network_security_group.bootstrap.id
+  network_security_group_id = element(azurerm_network_security_group.bootstrap.*.id, count.index)
   ip_configuration {
     name = "openshift-${var.openshift_cluster_name}-bootstrap-nic-config"
     subnet_id = var.azure_subnetwork_id
