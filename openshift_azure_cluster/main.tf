@@ -7,6 +7,9 @@ resource "azurerm_network_security_group" "api-lb" {
   tags = {
     APP_NAME = "OCP"
     OCP_CLUSTER = var.openshift_cluster_name
+    COST_CENTER = var.tag_cost_center
+    ENVIRONMENT = var.tag_environment
+    TIER = var.tag_tier
   }
 }
 
@@ -52,6 +55,9 @@ resource "azurerm_lb" "api-lb" {
   tags = {
     APP_NAME = "OCP"
     OCP_CLUSTER = var.openshift_cluster_name
+    COST_CENTER = var.tag_cost_center
+    ENVIRONMENT = var.tag_environment
+    TIER = var.tag_tier
   }
 }
 
@@ -108,6 +114,9 @@ resource "azurerm_network_security_group" "ingress-lb" {
   tags = {
     APP_NAME = "OCP"
     OCP_CLUSTER = var.openshift_cluster_name
+    COST_CENTER = var.tag_cost_center
+    ENVIRONMENT = var.tag_environment
+    TIER = var.tag_tier
   }
 }
 
@@ -153,6 +162,9 @@ resource "azurerm_lb" "ingress-lb" {
   tags = {
     APP_NAME = "OCP"
     OCP_CLUSTER = var.openshift_cluster_name
+    COST_CENTER = var.tag_cost_center
+    ENVIRONMENT = var.tag_environment
+    TIER = var.tag_tier
   }
 }
 
@@ -219,6 +231,9 @@ resource "azurerm_network_security_group" "bootstrap" {
   tags = {
     APP_NAME = "OCP"
     OCP_CLUSTER = var.openshift_cluster_name
+    COST_CENTER = var.tag_cost_center
+    ENVIRONMENT = var.tag_environment
+    TIER = var.tag_tier
   }
 }
 
@@ -302,6 +317,9 @@ resource "azurerm_virtual_machine" "bootstrap" {
   tags = {
     APP_NAME = "OCP"
     OCP_CLUSTER = var.openshift_cluster_name
+    COST_CENTER = var.tag_cost_center
+    ENVIRONMENT = var.tag_environment
+    TIER = var.tag_tier
   }
 }
 
@@ -314,6 +332,9 @@ resource "azurerm_network_security_group" "master" {
   tags = {
     APP_NAME = "OCP"
     OCP_CLUSTER = var.openshift_cluster_name
+    COST_CENTER = var.tag_cost_center
+    ENVIRONMENT = var.tag_environment
+    TIER = var.tag_tier
   }
 }
 
@@ -340,6 +361,9 @@ resource "azurerm_availability_set" "master" {
   tags = {
     APP_NAME = "OCP"
     OCP_CLUSTER = var.openshift_cluster_name
+    COST_CENTER = var.tag_cost_center
+    ENVIRONMENT = var.tag_environment
+    TIER = var.tag_tier
   }
 }
 
@@ -412,6 +436,9 @@ resource "azurerm_virtual_machine" "master" {
   tags = {
     APP_NAME = "OCP"
     OCP_CLUSTER = var.openshift_cluster_name
+    COST_CENTER = var.tag_cost_center
+    ENVIRONMENT = var.tag_environment
+    TIER = var.tag_tier
   }
 }
 
@@ -424,6 +451,9 @@ resource "azurerm_network_security_group" "worker" {
   tags = {
     APP_NAME = "OCP"
     OCP_CLUSTER = var.openshift_cluster_name
+    COST_CENTER = var.tag_cost_center
+    ENVIRONMENT = var.tag_environment
+    TIER = var.tag_tier
   }
 }
 
@@ -435,6 +465,9 @@ resource "azurerm_availability_set" "worker" {
   tags = {
     APP_NAME = "OCP"
     OCP_CLUSTER = var.openshift_cluster_name
+    COST_CENTER = var.tag_cost_center
+    ENVIRONMENT = var.tag_environment
+    TIER = var.tag_tier
   }
 }
 
@@ -494,8 +527,6 @@ resource "azurerm_virtual_machine" "worker" {
     create_option     = "FromImage"
     managed_disk_type = "Premium_LRS"
     disk_size_gb      = 200
-//    managed_disk_id = element(azurerm_managed_disk.worker.*.id, count.index)
-//    os_type = "Linux"
   }
   storage_image_reference {
     id = var.azure_rhcos_image_id
@@ -507,6 +538,9 @@ resource "azurerm_virtual_machine" "worker" {
   tags = {
     APP_NAME = "OCP"
     OCP_CLUSTER = var.openshift_cluster_name
+    COST_CENTER = var.tag_cost_center
+    ENVIRONMENT = var.tag_environment
+    TIER = var.tag_tier
   }
 }
 
@@ -523,6 +557,9 @@ resource "azurerm_private_dns_a_record" "api-public" {
   tags = {
     APP_NAME = "OCP"
     OCP_CLUSTER = var.openshift_cluster_name
+    COST_CENTER = var.tag_cost_center
+    ENVIRONMENT = var.tag_environment
+    TIER = var.tag_tier
   }
 }
 
@@ -537,6 +574,9 @@ resource "azurerm_private_dns_a_record" "api-private" {
   tags = {
     APP_NAME = "OCP"
     OCP_CLUSTER = var.openshift_cluster_name
+    COST_CENTER = var.tag_cost_center
+    ENVIRONMENT = var.tag_environment
+    TIER = var.tag_tier
   }
 }
 
@@ -551,6 +591,9 @@ resource "azurerm_private_dns_a_record" "ingress" {
   tags = {
     APP_NAME = "OCP"
     OCP_CLUSTER = var.openshift_cluster_name
+    COST_CENTER = var.tag_cost_center
+    ENVIRONMENT = var.tag_environment
+    TIER = var.tag_tier
   }
 }
 

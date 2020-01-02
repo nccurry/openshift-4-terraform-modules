@@ -17,6 +17,9 @@ resource "azurerm_storage_account" "rhcos" {
   account_replication_type = "LRS"
   tags {
     APP_NAME = "OCP"
+    COST_CENTER = var.tag_cost_center
+    ENVIRONMENT = var.tag_environment
+    TIER = var.tag_tier
   }
 }
 
@@ -48,5 +51,8 @@ resource "azurerm_image" "rhcos" {
 
   tags {
     APP_NAME = "OCP"
+    COST_CENTER = var.tag_cost_center
+    ENVIRONMENT = var.tag_environment
+    TIER = var.tag_tier
   }
 }

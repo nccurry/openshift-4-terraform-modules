@@ -14,6 +14,9 @@ resource "azurerm_storage_account" "bootstrap" {
   tags = {
     APP_NAME = "OCP"
     OCP_CLUSTER = var.openshift_cluster_name
+    COST_CENTER = var.tag_cost_center
+    ENVIRONMENT = var.tag_environment
+    TIER = var.tag_tier
   }
 }
 
@@ -27,6 +30,9 @@ resource "azurerm_storage_account" "master" {
   tags = {
     APP_NAME = "OCP"
     OCP_CLUSTER = var.openshift_cluster_name
+    COST_CENTER = var.tag_cost_center
+    ENVIRONMENT = var.tag_environment
+    TIER = var.tag_tier
   }
 }
 
@@ -40,6 +46,9 @@ resource "azurerm_storage_account" "worker" {
   tags = {
     APP_NAME = "OCP"
     OCP_CLUSTER = var.openshift_cluster_name
+    COST_CENTER = var.tag_cost_center
+    ENVIRONMENT = var.tag_environment
+    TIER = var.tag_tier
   }
 }
 
